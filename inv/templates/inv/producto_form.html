@@ -1,0 +1,20 @@
+<div class="modal-dialog modal-lg">
+
+    <div class="modal-content">
+
+        {%if obj %}
+        <form method="post" role="form" class="form-inline" action="{% url 'inv:EditarProducto' obj.pk %}">
+        {% else %}
+        <form method="post" role="form" class="form-inline" action="{% url 'inv:NuevoProducto' %}">
+        {% endif %}
+            {{form.as_p}}
+            {%  csrf_token %}
+            <div>
+                <button type="submit" class="btn btn-primary">Agregar</button>
+            
+                <button type="button" onclick="cerrar_modal()" class="btn btn-success"><span class="fa fa-undo"></span></button>   
+            </div>
+            
+        </form>
+    </div>
+</div>

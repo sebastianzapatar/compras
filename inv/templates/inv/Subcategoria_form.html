@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{% block page_conent %}
+<form method="post">
+    {{form.as_p}}
+    
+    {%  csrf_token %}
+    <button type="submit" class="btn btn-primary">Agregar</button>
+    <a href="{% url 'inv:listarsubcategorias' %}" class="btn btn-success"><span class="fa fa-undo"></span>Regresar</a>
+</form>
+{% endblock %}
+{% block js_page %}{% endblock %}

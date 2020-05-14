@@ -1,0 +1,52 @@
+{% extends 'base/base.html' %}
+{% block page_conent %}
+  
+  {% endblock %}
+{% block side_bar %}
+
+<div class="container">
+  <script>
+mensaje('Hola amigos es una prueba que no sirve','red');
+
+  </script>
+  
+    <!-- Outer Row -->
+    <div class="row justify-content-center">
+
+      <div class="col-xl-10 col-lg-12 col-md-9">
+
+        <div class="card o-hidden border-0 shadow-lg my-5">
+          <div class="card-body p-0">
+            <!-- Nested Row within Card Body -->
+            <div class="row">
+              <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+              <div class="col-lg-6">
+                <div class="p-5">
+                  <div class="text-center">
+                    <h1 class="h4 text-gray-900 mb-4">No tienes suficientes permisos para Ingresar a esta parte </h1>
+                    <h2>Usuario: {{user.username}} {{user.get_full_name}}</h2>
+                    
+                  <hr>
+                  <div class="text-center">
+                    <a class="small" href="{% url 'home:home' %}">Volver al home</a>
+                  </div>
+                  <div class="text-center">
+                    <a class="small" href="{% url 'home:login' %}">Ingresar con otro nombre de usuario</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+  {% endblock %}
+  {% block footer %}
+  {% endblock %}
+  {% block topbar %}
+  {% endblock topbar %}
+  

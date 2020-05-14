@@ -1,0 +1,20 @@
+{% extends 'base/base.html' %}
+{% block page_conent %}
+<form method="post">
+    
+    <div class="panel-heading">
+        Eliminar
+    </div>
+    <div class="panel-body">
+        {% csrf_token %}
+        <div class="alert alert-success">
+            ¿Esta seguro de eliminar Eliminar {{obj.descripcion}}?
+        </div>
+        <button type="submit" class="btn btn-danger">
+            <span class="fa fa-delete">Si</span>
+        </button>
+        <a href="{% url 'inv:listarcategorias' %}" class="btn btn-success"><span class="fa fa-undo">No</span> </a>
+    </div>
+    
+</form>
+{% endblock %}

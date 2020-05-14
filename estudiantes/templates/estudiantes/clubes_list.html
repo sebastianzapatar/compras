@@ -1,0 +1,60 @@
+{% extends 'base/base.html' %}
+{% block page_conent %}
+<!-- Dropdown Card Example -->
+<div class="card shadow mb-4">
+    <!-- Card Header - Dropdown -->
+    <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+        <h6 class="m-0 font-weight-bold text-primary">Acciones</h6>
+        <div class="dropdown no-arrow">
+            <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+            </a>
+            <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-header">Acciones:</div>
+                <a class="dropdown-item"  href="{% url 'estudiantes:insertarClub'%}">Nueva</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="card-body">
+        {% if not obj %}
+        Sin Estudiantes
+        {% endif %}
+        <table class="table table-striped table-hover" id="table">
+            <thead>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Estudiante</th>
+                <th>Acciones</th>
+                
+            </thead>
+            <tbody>
+                
+                {% for item in obj %}
+                    <tr>
+                        <td>{{item.id}}</td>
+                        <td>{{item.nombre}}</td>
+                        <td>{{item.estudiante}}</td>
+                        
+
+                        <td><a href ="#" class="btn btn-warning btn-circle" role="button" onclick="return abrir_modal('{#  url 'inv:EditarProducto' item.id //#endregion}')"><span class="fab fa-adn"></span></a>
+                            <a href="{# url 'inv:Productoinactivar' item.id #}" class="btn btn-danger btn-circle" role="button"><span class="fas fa-arrow-alt-circle-left"></span></a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block js_page %}
+<script>
+    $(document).ready( function () {
+    $('#table').DataTable();
+} );
+</script>
+{% endblock %}
