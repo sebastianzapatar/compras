@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'coms',
     'fac',
     'estudiantes',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [

@@ -7,9 +7,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMix
 from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
-class Home1(generic.View):
-    def get(self,request,*args,**kwargs):
-        return HttpResponse('Seguimos en el fin del mundo')
+
 class Home(LoginRequiredMixin,generic.TemplateView):
     template_name="home/home.html"
     login_url="home:login"
